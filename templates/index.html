@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            font-family: "Poetsen One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #FB5607;
+        }
+        p {
+            font-family: "Ubuntu Sans", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            color: #FFBE0B;
+        }
+        a {
+            font-family: "Ubuntu Sans", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            color: #fb5607;
+            text-decoration: none;
+            padding-bottom: 2rem;
+        }
+        a:hover {
+            cursor: pointer;
+        }
+        table {
+            font-family: "Ubuntu Sans", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table td,
+        table th {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+        table th {
+            background-color: #3A86FF;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #3A86FF;
+        }
+        table tr:nth-child(odd) {
+            background-color: #FFBE0B;
+        }
+    </style>
+    <title>Listado de Personas</title>
+</head>
+<body>
+<h1>Sistema de Administración de Personas (SAP)</h1>
+<p> Total de personas: {{total_personas}} </p>
+<a href="/agregar">Agregar Persona</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for persona in personas %}
+            <tr>
+                <td>{{persona.id}}</td>
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.apellido}}</td>
+                <td>{{persona.email}}</td>
+                <td><a href="ver/{{persona.id}}">Ver</a></td>
+                <td><a href="editar/{{persona.id}}">Editar</a></td>
+                <td><a href="eliminar/{{persona.id}}">Eliminar</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
